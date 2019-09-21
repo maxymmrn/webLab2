@@ -1,0 +1,43 @@
+main {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#main_image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+h3, p {
+    color: white;
+}
+
+#about {
+    padding-top: 40px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+#albums {
+    padding-top: 40px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+#albums article {
+    display: flex;
+    justify-content: space-between;
+}
+#albums img {
+    width: 300px;
+    height: 300px;
+}
+
+footer {
+    padding-top: 40px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
