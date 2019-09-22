@@ -1,0 +1,85 @@
+h3, p, th, td, caption {
+    color: white;
+    text-align: center;
+}
+
+.table_container {
+    position: absolute;
+    width: 50%;
+    margin: 0 auto;
+    left: 40%;
+    top: 37%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+img {
+    z-index: -5;
+    width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 80%;
+    font-size: 0.9em;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px 15px;
+    width: 30px;
+}
+
+thead tr {
+    background-color: darkred;
+    text-align: left;
+    font-weight: bold;
+}
+
+tbody tr {
+    border-bottom: 1px solid gray;
+    background-color: black;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #090909;
+}
+
+tbody tr:last-of-type {
+    border-bottom: 3px solid darkred;
+}
+
+tbody tr:nth-child(even):hover {
+    animation: even-row-anim;
+    animation-duration: 500ms;
+    background-color: darkred;
+}
+
+tbody tr:nth-child(odd):hover {
+    animation: odd-row-anim;
+    animation-duration: 500ms;
+    background-color: darkred;
+}
+
+@keyframes even-row-anim {
+    from { background-color: #090909 }
+    to { background-color: darkred }
+}
+
+@keyframes odd-row-anim {
+    from { background-color: black }
+    to { background-color: darkred }
+}
+
+
+
+
+
+
+
+

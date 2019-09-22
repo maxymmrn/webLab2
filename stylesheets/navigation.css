@@ -31,7 +31,7 @@ header {
 
 @keyframes  rotation {
     from { transform: rotate(5deg)}
-    50% { transform: rotate(15deg)}
+    50% { transform: rotate(10deg)}
     to { transform: rotate(5deg)}
 }
 
@@ -67,7 +67,7 @@ nav a {
 .menu_item::before {
     content: '';
     display: block;
-    height: 5px;
+    height: 3px;
     background: gray;
     position: absolute;
     top: -0.75em;
@@ -110,4 +110,12 @@ nav a {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+
+footer {
+    padding-top: 40px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
 }
