@@ -1,3 +1,12 @@
+:root {
+    --background: rgba(0, 0, 0, 0.95);
+}
+
+*, *::before, *::before   {
+    box-sizing: border-box;
+}
+
+
 body {
     background-color: black;
     margin: 0;
@@ -11,8 +20,7 @@ header {
     height: 60px;
     display: grid;
     grid-template-columns: 0.5fr auto minmax(600px, 3fr) 0.5fr;
-    background-color: rgba(0, 0, 0, 0.95);
-    z-index: 999;
+    background: var(--background);
     text-align: center;
     padding: 0;
 }
@@ -20,13 +28,15 @@ header {
 #logo {
     height: 64px;
     width: 150px;
-    grid-column: 2 / 3;
+    display: flex;
+    justify-self: center;
     position: absolute;
     transform: rotate(5deg);
     transform-origin: top left;
     animation-name: rotation;
     animation-duration: 4s;
     animation-iteration-count: 2;
+    z-index: 999;
 }
 
 @keyframes  rotation {
@@ -35,75 +45,99 @@ header {
     to { transform: rotate(5deg)}
 }
 
-nav {
-    grid-column: 3 / 4;
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    height: 100%;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
 }
 
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background: white;
+    height: 2px;
+    width: 2em;
+    border-radius: 2px;
+    position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+}
+
+.nav-toggle-label span::before {
+    bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+    top:7px
+}
+
+nav {
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    background: var(--background);
+    width: 100%;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+}
+
 #menu {
-    display: flex;
-    justify-content: flex-end;
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
 nav li {
-    margin-bottom: 0;
-    margin-left: 3em;
+    margin-bottom: 1em;
+    margin-left: 1em;
 }
 
 nav a {
-    text-decoration: none;
     color: white;
+    text-decoration: none;
     font-size: 1.2rem;
-    opacity: 1;
-    position: relative;
-    transition: color 300ms;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
 }
 
-.menu_item::before {
-    content: '';
-    display: block;
-    height: 3px;
-    background: gray;
-    position: absolute;
-    top: -0.75em;
-    left: 0;
-    right: 0;
-    transform: scale(0, 1);
-    transition: transform ease-in-out 300ms;
-}
-
-.menu_item:hover::before {
+nav a:hover {
     color: gray;
+}
+
+.nav-toggle:checked ~ nav {
     transform: scale(1, 1);
 }
 
-.menu_item:hover {
-    color: gray;
+.nav-toggle:checked ~ nav a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
 }
 
-
-
 .sub_menu {
-    background-color: rgba(0, 0, 0, 0.95);
-    position: absolute;
-    margin-left: -34px;
-    padding: 0;
-    width: 150px;
-    height: 100px;
+    color: white;
+    padding-top: 10px;
     list-style: none;
     display: none;
 }
 
-.sub_menu a:hover {
-    color: gray;
-}
 .sub_menu li {
-    margin-left: 0;
+    margin-left: -20px;
 }
 
 #for_fans:hover .sub_menu {
@@ -112,10 +146,95 @@ nav a {
     justify-content: space-around;
 }
 
-
 footer {
     padding-top: 40px;
     width: 100%;
     margin: auto;
     text-align: center;
+}
+
+@media screen and (min-width: 1050px) {
+
+    .nav-toggle-label {
+        display: none;
+    }
+
+    header {
+        display: grid;
+        grid-template-columns: 0.5fr auto minmax(700px, 3fr) 0.3fr;
+    }
+
+    #logo {
+        grid-column: 2 / 3;
+    }
+
+    nav {
+        all: unset;
+        grid-column: 3 / 4;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    #menu {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    #menu li {
+        margin-left: 2em;
+        margin-bottom: 0;
+    }
+
+    nav a {
+        opacity: 1;
+        position: relative;
+        transition: color 500ms;
+    }
+
+    .menu_item::before {
+        content: '';
+        display: block;
+        height: 3px;
+        border-radius: 1px;
+        background: gray;
+        position: absolute;
+        top: -0.25em;
+        left: 0;
+        right: 0;
+        transform: scale(0, 1);
+        transition: transform ease-in-out 300ms;
+    }
+
+    .menu_item:hover::before {
+        color: gray;
+        transform: scale(1, 1);
+    }
+
+    .menu_item:hover {
+        color: gray;
+    }
+
+    .sub_menu {
+        background: var(--background);
+        position: absolute;
+        width: 200px;
+        height: 150px;
+        padding: 0;
+        margin-left: -30px;
+    }
+
+    .sub_menu li {
+        margin-left: 1em !important;
+        padding: 0;
+        text-align: left;
+    }
+
+    .sub_menu a:hover {
+        color: gray;
+    }
+
+    #for_fans a {
+        z-index: 1000;
+    }
 }
