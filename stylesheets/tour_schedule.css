@@ -76,7 +76,25 @@ tbody tr:nth-child(odd):hover {
     to { background-color: darkred }
 }
 
+@media screen and (max-width: 1050px) {
 
+    .table_container {
+        all: unset;
+        position: absolute;
+        width: 100%;
+        margin: 0 auto;
+        top: 60%;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    #main_image {
+        padding-top: 10%;
+    }
+}
 
 
 
