@@ -1,0 +1,22 @@
+main {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.buffer {
+    height: 80px;
+}
+
+.map_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 80vh;
+}
+
+iframe {
+    width: 80%;
+    height: 100%;
+}

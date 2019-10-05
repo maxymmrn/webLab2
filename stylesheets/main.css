@@ -3,8 +3,8 @@ main {
     margin: 0 auto;
 }
 
-h3, p {
-    color: white;
+.buffer {
+    height: 80px;
 }
 
 #main_image {

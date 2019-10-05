@@ -7,6 +7,10 @@
 }
 
 
+h3, p {
+    color: white;
+}
+
 body {
     background-color: black;
     margin: 0;
@@ -23,6 +27,7 @@ header {
     background: var(--background);
     text-align: center;
     padding: 0;
+    margin: 0;
     z-index: 900;
 }
 

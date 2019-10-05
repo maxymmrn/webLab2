@@ -83,16 +83,24 @@ tbody tr:nth-child(odd):hover {
         position: absolute;
         width: 100%;
         margin: 0 auto;
-        top: 60%;
+        top: 30%;
         height: 300px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
-    #main_image {
-        padding-top: 10%;
+    table {
+        padding-top: 150px;
+    }
+
+    main img {
+       display: none;
+    }
+
+    footer {
+        display: none;
     }
 }
 
