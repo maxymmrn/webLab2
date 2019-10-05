@@ -1,0 +1,63 @@
+main {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.buffer {
+    height: 80px;
+}
+
+form {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+form * {
+    margin-top: 30px;
+    width: 30%;
+}
+
+form img {
+    width: 20%;
+}
+
+textarea {
+    height: 100px;
+}
+
+.topic, textarea {
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid gray;
+    color: white;
+}
+
+.submit {
+    background: transparent;
+    border: 2px solid gray;
+    border-radius: 5px;
+    color: gray;
+    width: 100px;
+    transition: color, background 250ms ease-in-out;
+}
+
+.submit:hover {
+    background: gray;
+    color: white;
+}
+
+@media screen and (max-width: 800px) {
+
+    form * {
+        margin-top: 30px;
+        width: 60%;
+    }
+
+    form img {
+        width: 40%;
+    }
+}
