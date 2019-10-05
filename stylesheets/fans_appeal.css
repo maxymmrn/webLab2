@@ -1,0 +1,61 @@
+main {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.buffer {
+    height: 80px;
+}
+
+.appeal {
+    border-top: 2px solid gray;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.appeal div {
+    margin: 0 5px;
+}
+
+.msg_head {
+    text-align: center;
+    margin-right: 20px;
+}
+
+.new_appeal {
+    padding-top: 20px;
+    border-top: 2px solid gray;
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+textarea {
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid gray;
+    color: white;
+    height: 100px;
+    width: 70%;
+    margin-left: 10px;
+}
+
+input {
+    background: transparent;
+    border: 2px solid gray;
+    border-radius: 5px;
+    color: gray;
+    width: 100px;
+    transition: color, background 250ms ease-in-out;
+}
+
+input:hover {
+    background: gray;
+    color: white;
+}
