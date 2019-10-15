@@ -13,7 +13,7 @@ CACHE:
 ./stylesheets/main.css
 
 NETWORK:
-*
+main.html
 
 FALLBACK:
-./smth.html ./error.html
+concert_venue.html ./error.html
