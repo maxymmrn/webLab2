@@ -29,7 +29,7 @@ main {
     width: 100%;
 }
 
-form {
+.form {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
@@ -46,7 +46,7 @@ textarea {
     margin-left: 10px;
 }
 
-input {
+#submit {
     background: transparent;
     border: 2px solid gray;
     border-radius: 5px;
@@ -55,7 +55,7 @@ input {
     transition: color, background 250ms ease-in-out;
 }
 
-input:hover {
+#submit:hover {
     background: gray;
     color: white;
 }

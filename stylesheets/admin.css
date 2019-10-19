@@ -7,7 +7,7 @@ main {
     height: 80px;
 }
 
-form {
+.form {
     position: relative;
     overflow: hidden;
     display: flex;
@@ -16,13 +16,17 @@ form {
     justify-content: space-between;
 }
 
-form * {
+.form * {
     margin-top: 30px;
     width: 30%;
 }
 
-form img {
+.form img {
     width: 20%;
+}
+
+.file_reader {
+    display: none;
 }
 
 textarea {
@@ -52,12 +56,12 @@ textarea {
 
 @media screen and (max-width: 800px) {
 
-    form * {
+    .form * {
         margin-top: 30px;
         width: 60%;
     }
 
-    form img {
+    .form img {
         width: 40%;
     }
 }

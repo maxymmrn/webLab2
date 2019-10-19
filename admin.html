@@ -35,17 +35,24 @@
 
         <main>
             <div class="buffer"></div>
-            <form>
-                <img src="images/add-image.svg" alt="">
+            <div class="form">
+                <img class="new_img" src="images/add-image.svg" alt="">
+                <input class="file_reader" type="file" required>
                 <input class="topic" type="text" placeholder="Topic">
-                <textarea placeholder="Description"></textarea>
-                <input class="submit" type="submit">
-            </form>
+                <textarea class="description" placeholder="Description"></textarea>
+                <button class="submit">Send</button>
+            </div>
         </main>
 
         <footer>
             <p>Created by Maxym Marina</p>
         </footer>
 
+
+        <script
+                src="https://code.jquery.com/jquery-3.4.1.js"
+                integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+                crossorigin="anonymous"></script>
+        <script src="./scripts/admin.js"></script>
     </body>
 </html>

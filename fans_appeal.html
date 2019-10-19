@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans:400">
         <link rel="stylesheet" href="stylesheets/navigation.css">
         <link rel="stylesheet" href="stylesheets/fans_appeal.css">
+
     </head>
 
     <body>
@@ -37,7 +38,7 @@
         <div class="buffer"></div>
 
         <main>
-            <ul>
+            <ul id="appeals">
                 <li class="appeal">
                     <div class="msg_head">
                         <p>Name</p>
@@ -73,18 +74,24 @@
                             lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
                             lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet</p>
                     </div>
-                </li>
-                <li class="new_appeal">
-                    <form>
-                        <input type="submit">
-                        <textarea placeholder="Write an appeal"></textarea>
-                    </form>
                 </li>
             </ul>
+            <div class="new_appeal">
+                <div class="form">
+                    <button id="submit">Send</button>
+                    <textarea id="comment" placeholder="Write an appeal"></textarea>
+                </div>
+            </div>
         </main>
 
         <footer>
             <p>Created by Maxym Marina</p>
         </footer>
+
+        <script
+                src="https://code.jquery.com/jquery-3.4.1.js"
+                integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+                crossorigin="anonymous"></script>
+        <script src="scripts/fans_appeal.js"></script>
     </body>
 </html>
