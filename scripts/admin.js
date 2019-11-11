@@ -1,18 +1,32 @@
+const isOnline = () => {
+    return window.navigator.onLine;
+};
+
+const sendToServer = () => {};
+
 $('.submit').on('click',  () => {
     const newImg = $('.new_img');
     const topic = $('.topic');
     const description = $('.description');
-    if (topic.val() === '') {
+    if (topic.val().trim() === '') {
         alert('Topic is empty');
-    } else if (description.val() === '') {
+    } else if (description.val().trim() === '') {
         alert('Where is description?');
     } else if (newImg.attr('src') === 'images/add-image.svg') {
         alert("Add some picture");
     } else {
         alert("Well done");
-        newImg.attr('src', 'images/add-image.svg');
-        topic.val('');
-        description.val('');
+        if (isOnline()) {
+            sendToServer();
+            newImg.attr('src', 'images/add-image.svg');
+            topic.val('');
+            description.val('');
+        } else {
+            localStorage.setItem(`news${localStorage.length}`, JSON.stringify([topic.val(), description.val(), newImg.attr('src')]));
+            newImg.attr('src', 'images/add-image.svg');
+            topic.val('');
+            description.val('');
+        }
     }
 });
 
@@ -29,11 +43,6 @@ $('.file_reader').on('change', ev => {
     fr.readAsDataURL(file);
 });
 
-
 $('.new_img').on('click', () => {
     $('.file_reader').trigger('click');
 });
-
-
-
-

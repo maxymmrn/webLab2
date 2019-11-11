@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="stylesheets/navigation.css">
         <link rel="stylesheet" href="stylesheets/news.css">
     </head>
-    <body>
+    <body onload="readNews()">
         <header>
             <img id="logo" src="images/logo.png" alt="LOGO">
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
@@ -97,5 +97,10 @@
                 </p>
             </div>
         </main>
+        <script
+                src="https://code.jquery.com/jquery-3.4.1.js"
+                integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+                crossorigin="anonymous"></script>
+        <script src="scripts/news.js"></script>
     </body>
 </html>

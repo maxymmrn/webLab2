@@ -1,18 +1,42 @@
+const readAppeals = () => {
+    if (isOnline()) {
+        for (let key in localStorage) {
+            console.log(key.substring(0, 6));
+            if (key.substring(0, 6) === `appeal`) {
+                let appeal = formComment(localStorage.getItem(key));
+                $('#appeals').append(appeal);
+            }
+        }
+        localStorage.clear();
+    }
+};
+
 $('#submit').on('click',  () => {
     const comment = $('#comment');
-    console.log(comment.val());
-    if (comment.val() === '') {
+    if (comment.val().trim() === '') {
         alert('Write your comment first')
     } else {
-        console.log("yep");
-        const appeal = formComment(comment.val());
-        $('#appeals').append(appeal);
-        comment.val('');
+        if (isOnline()) {
+            sendToServer();
+            localStorage.setItem(`appeal${localStorage.length}`, comment.val());
+            const appeal = formComment(comment.val());
+            $('#appeals').append(appeal);
+            comment.val('');
+        } else {
+            localStorage.setItem(`appeal${localStorage.length}`, comment.val());
+            comment.val('');
+        }
     }
 });
 
+const sendToServer = () => {};
+
 const pad = n => {
     return (n < 10) ? ('0' + n) : n;
+};
+
+const isOnline = () => {
+    return window.navigator.onLine;
 };
 
 const formComment = (description) => {
