@@ -1,17 +1,19 @@
+let newsDB = new IndexDB();
+
 const readNews = () => {
     if (isOnline()) {
-        for (let key in localStorage) {
-            console.log(key.substring(0, 4));
-            if (key.substring(0, 4) === `news`) {
-                let args = JSON.parse(localStorage.getItem(key));
-                let topic = args[0];
-                let description = args[1];
-                let imgSrc = args[2];
-                let news = formNew(topic, description, imgSrc);
-                $('main').append(news);
+        setTimeout(() => {
+            newsDB.news.onsuccess = event => {
+                let news = event.target.result;
+                for (let item of news) {
+                    let topic = item.topic;
+                    let description = item.description;
+                    let imgSrc = item.imgSrc;
+                    let news = formNew(topic, description, imgSrc);
+                    $('main').append(news);
+                }
             }
-        }
-        localStorage.clear();
+        }, 1000);
     }
 };
 
@@ -31,3 +33,7 @@ const formNew = (topic, description, imgSrc) => {
 
     return div;
 };
+
+
+
+const db = new IndexDB();

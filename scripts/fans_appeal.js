@@ -1,14 +1,20 @@
+let appealsDB;
+
 const readAppeals = () => {
-    if (isOnline()) {
-        for (let key in localStorage) {
-            console.log(key.substring(0, 6));
-            if (key.substring(0, 6) === `appeal`) {
-                let appeal = formComment(localStorage.getItem(key));
-                $('#appeals').append(appeal);
+    let appeals;
+    appealsDB = new IndexDB();
+
+    setTimeout(() => {
+        appealsDB.appeals.onsuccess = event => {
+            console.log("read from Appeals");
+            appeals = event.target.result;
+            for (let appeal of appeals) {
+                console.log(appeal.comment);
+                $('#appeals').append(formComment(appeal.comment));
             }
-        }
-        localStorage.clear();
-    }
+        };
+
+    }, 1000);
 };
 
 $('#submit').on('click',  () => {
@@ -18,12 +24,9 @@ $('#submit').on('click',  () => {
     } else {
         if (isOnline()) {
             sendToServer();
-            localStorage.setItem(`appeal${localStorage.length}`, comment.val());
-            const appeal = formComment(comment.val());
-            $('#appeals').append(appeal);
             comment.val('');
         } else {
-            localStorage.setItem(`appeal${localStorage.length}`, comment.val());
+            appealsDB.saveAppeal(comment.val());
             comment.val('');
         }
     }

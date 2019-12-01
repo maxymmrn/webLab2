@@ -1,3 +1,5 @@
+let newsDB = new IndexDB();
+
 const isOnline = () => {
     return window.navigator.onLine;
 };
@@ -22,7 +24,7 @@ $('.submit').on('click',  () => {
             topic.val('');
             description.val('');
         } else {
-            localStorage.setItem(`news${localStorage.length}`, JSON.stringify([topic.val(), description.val(), newImg.attr('src')]));
+            newsDB.saveNews(newImg.attr('src'), topic.val(), description.val());
             newImg.attr('src', 'images/add-image.svg');
             topic.val('');
             description.val('');
